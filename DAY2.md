@@ -83,6 +83,20 @@ The final step of the floorplan stage defines how the internal core communicates
 * **Logical Cell Placement Blockages:** To prevent automated P&R tools from cluttering the area directly between the boundary pins and the core cells (which is strictly reserved for routing tracks), a **placement blockage** is applied to those outer boundary regions. This guarantees clear routing channels for the physical connections.
 
 ## Lab Observations
+# Now that we have entered the OpenLANE flow contained docker sub-system we can invoke the OpenLANE flow in the Interactive mode using the following command
+./flow.tcl -interactive
+
+# Now that OpenLANE flow is open we have to input the required packages for proper functionality of the OpenLANE flow
+package require openlane 0.9
+
+# Now the OpenLANE flow is ready to run any design and initially we have to prep the design creating some necessary files and directories for running a specific design which in our case is 'picorv32a'
+prep -design picorv32a
+
+# Now that the design is prepped and ready, we can run synthesis using following command
+run_synthesis
+
+# Now we can run floorplan
+run_floorplan
 
 Steps to Run Floorplan Using OpenLANE
 This section details how to execute the automated floorplanning stage within the OpenLANE interactive flow.
@@ -175,6 +189,6 @@ Screenshot of floorplan def in magic
 <img width="1448" height="745" alt="fp in def magic" src="https://github.com/user-attachments/assets/1520b5e1-47e3-460f-af42-fa5e7b685ccc" />
 <img width="1437" height="738" alt="equididtant placement of ports" src="https://github.com/user-attachments/assets/4b0361da-87c7-491c-b2a7-fe78ebb75fd2" />
 <img width="1428" height="787" alt="port layer as set through config tcl" src="https://github.com/user-attachments/assets/d46ac3c6-7921-44ca-94d7-18cb75a44fef" />
-<img width="1428" height="787" alt="port layer as set through config tcl" src="https://github.com/user-attachments/assets/f82d66af-17a4-441a-b0db-627a8c6d5760" />
+
 
 
