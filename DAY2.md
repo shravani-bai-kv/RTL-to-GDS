@@ -84,22 +84,6 @@ The final step of the floorplan stage defines how the internal core communicates
 
 ## Lab Observations
 # Now that we have entered the OpenLANE flow contained docker sub-system we can invoke the OpenLANE flow in the Interactive mode using the following command
-./flow.tcl -interactive
-
-# Now that OpenLANE flow is open we have to input the required packages for proper functionality of the OpenLANE flow
-package require openlane 0.9
-
-# Now the OpenLANE flow is ready to run any design and initially we have to prep the design creating some necessary files and directories for running a specific design which in our case is 'picorv32a'
-prep -design picorv32a
-
-# Now that the design is prepped and ready, we can run synthesis using following command
-run_synthesis
-
-# Now we can run floorplan
-run_floorplan
-
-Steps to Run Floorplan Using OpenLANE
-This section details how to execute the automated floorplanning stage within the OpenLANE interactive flow.
 
 * **Flow Initialization:** Navigate to your OpenLANE directory and launch the Docker container.
 * **Design Setup:** Prepare the configuration environment for the target design block using the following interactive commands:
@@ -108,8 +92,11 @@ This section details how to execute the automated floorplanning stage within the
   package require openlane 0.9
   prep -design picorv32a
   ```
-
-  Running Floorplan: Execute the core floorplanning step:
+ Now that the design is prepped and ready, we can run synthesis using following command
+ ```bash
+ run_synthesis
+```
+ Running Floorplan: Execute the core floorplanning step:
 ```bash
 run_floorplan
 ```
