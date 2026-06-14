@@ -158,15 +158,23 @@ This step covers loading the floorplanned layout into Magic to physically inspec
 Command to Open Magic: Run the following command in your terminal to load the design definitions into the tool:
 
 ```bash
-magic -T <path_to_sky130A.tech> lef read <path_to_merged.lef> def read picorv32a.floorplan.def &
+# Change directory to the path containing the generated floorplan DEF file
+cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/17-03_12-06/results/floorplan/
+
+# Load the floorplan DEF in the Magic tool using the Sky130 PDK tech file and merged LEF
+magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech \
+      lef read ../../tmp/merged.lef \
+      def read picorv32a.floorplan.def &
 ```
 
 ## Visual Verification Points:
 
 Die vs. Core: Verify the outer die and inner core spaces match your target configurations.
 
-I/O Pins: Check that the input and output pins are properly distributed along the margins of the core.
+Screenshot of floorplan def in magic
+<img width="1448" height="745" alt="fp in def magic" src="https://github.com/user-attachments/assets/1520b5e1-47e3-460f-af42-fa5e7b685ccc" />
+<img width="1437" height="738" alt="equididtant placement of ports" src="https://github.com/user-attachments/assets/4b0361da-87c7-491c-b2a7-fe78ebb75fd2" />
+<img width="1428" height="787" alt="port layer as set through config tcl" src="https://github.com/user-attachments/assets/d46ac3c6-7921-44ca-94d7-18cb75a44fef" />
+<img width="1428" height="787" alt="port layer as set through config tcl" src="https://github.com/user-attachments/assets/f82d66af-17a4-441a-b0db-627a8c6d5760" />
 
-Standard Cell Area: At this stage, standard cells will not be visible inside the core region; they are blocked out and waiting for the subsequent placement step.
 
-Insert your SKY_L8 screenshot below:
