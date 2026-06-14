@@ -1,5 +1,5 @@
 # Day 2 - Chip Floorplanning Considerations & Pre-Placed Cells
-
+#### numer 1
 ## 1. Core and Die Definitions
 Before placing components, the physical boundaries of the chip must be defined:
 * **Die:** The entire size of the silicon chip, including the core and the outer wrapper area reserved for I/O pins and pads.
