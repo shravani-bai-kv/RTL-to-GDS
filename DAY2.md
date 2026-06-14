@@ -93,37 +93,75 @@ This section details how to execute the automated floorplanning stage within the
   ./flow.tcl -interactive
   package require openlane 0.9
   prep -design picorv32a
-  ```bash
+  ```
 
   Running Floorplan: Execute the core floorplanning step:
 ```bash
 run_floorplan
-```bash
+```
 Output: This command processes the synthesized netlist alongside your config.tcl parameters to generate a DEF (Design Exchange Format) file containing core boundaries and pin coordinates.
 
-Insert your SKY_L6 screenshot below:
+<img width="1010" height="558" alt="floorplan" src="https://github.com/user-attachments/assets/a5664c75-d345-4bb1-b3ac-7f3a9907576e" />
 
-SKY_L7 - Review Floorplan Files and Steps to View Floorplan
-Once the floorplan completes, you need to verify the generated files before moving forward.
 
+## Review Floorplan Files and Steps to View Floorplan
+Once the floorplan completes, verifying the generated files before moving forward.
 Directory Navigation: Locate your newly generated DEF file by navigating to:
 
+```bash
 Plaintext
 <openlane_dir>/designs/picorv32a/runs/<run_tag>/results/floorplan/picorv32a.floorplan.def
+```
 Configuration Priorities: If a specific design variable isn't explicitly defined inside your local config.tcl file, OpenLANE automatically inherits system-level defaults.
 
 Visualization Tool: To visually inspect the physical layout, you will utilize Magic VLSI Layout Tool along with the Sky130 technology (.tech) file and the merged LEF file.
 
-Insert your SKY_L7 screenshot below:
+<img width="731" height="488" alt="floorplan row" src="https://github.com/user-attachments/assets/7584083a-7645-4a15-a727-ef5b04d6b966" />
+## Floorplan Analysis: Die Area Calculation
 
-SKY_L8 - Review Floorplan Layout in Magic
+The DEF file explicitly defines the boundaries of the chip design using the `DIEAREA` statement. The values provided are in **database units**, which must be converted to **microns** using the defined unit scale.
+
+### 1. Extracting Values from the DEF File
+
+* **`UNITS DISTANCE MICRONS 1000 ;`** This indicates that $1000 \text{ database units} = 1 \mu\text{m}$ (micron).
+* **`DIEAREA ( 0 0 ) ( 660685 671405 ) ;`**
+  This defines a rectangular boundary stretching from the lower-left corner coordinate $(X_1, Y_1)$ to the upper-right corner coordinate $(X_2, Y_2)$:
+  * $X_1 = 0, \quad Y_1 = 0$
+  * $X_2 = 660685, \quad Y_2 = 671405$
+
+---
+
+### 2. Area Calculations
+
+#### Step A: Calculate Dimensions in Microns
+To convert the database coordinates to microns, we divide each dimension length by the unit scale factor ($1000$):
+
+$$\text{Die Width (X)} = \frac{X_2 - X_1}{1000} = \frac{660685 - 0}{1000} = 660.685 \, \mu\text{m}$$
+
+$$\text{Die Height (Y)} = \frac{Y_2 - Y_1}{1000} = \frac{671405 - 0}{1000} = 671.405 \, \mu\text{m}$$
+
+#### Step B: Calculate Total Area
+The total die area is the product of its width and height:
+
+$$\text{Total Area} = \text{Width} \times \text{Height}$$
+
+$$\text{Total Area} = 660.685 \, \mu\text{m} \times 671.405 \, \mu\text{m} \approx 443587.19 \, \mu\text{m}^2$$
+
+### Summary of Results
+* **Die Width:** $660.685 \, \mu\text{m}$
+* **Die Height:** $671.405 \, \mu\text{m}$
+* **Total Die Area:** **$443,587.19 \, \mu\text{m}^2$** (or $\approx 0.444 \, \text{mm}^2$)
+
+## Review Floorplan Layout in Magic
 This step covers loading the floorplanned layout into Magic to physically inspect the layout constraints.
 
 Command to Open Magic: Run the following command in your terminal to load the design definitions into the tool:
 
-Bash
+```bash
 magic -T <path_to_sky130A.tech> lef read <path_to_merged.lef> def read picorv32a.floorplan.def &
-Visual Verification Points:
+```
+
+## Visual Verification Points:
 
 Die vs. Core: Verify the outer die and inner core spaces match your target configurations.
 
