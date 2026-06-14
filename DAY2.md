@@ -242,7 +242,7 @@ The Physical Design tool is fundamentally blind to physics; it relies completely
 
 ### 5. Congestion Aware Placement Using RePlAce
 Optimizing entirely for the shortest wire-lengths creates a fatal flaw: cells crowd together into localized dense clusters, leaving no physical gaps or routing channels for actual wires to thread through.
-
+(Which is shown befow the flooorplan in Section 1)
 * **What is RePlAce?** RePlAce is the default analytical, non-linear global placement engine integrated natively inside the OpenLANE architecture.
 * **Electrostatic Analogy:** RePlAce models standard cells as charged particles moving inside an electric field. Cells that share nets exert attractive forces on one another, while density overflow creates a repulsive force.
 * **Density Balancing Over Congestion:** The engine solves mathematical equations to distribute cell density smoothly across the core. By continuously spreading cells out evenly, it proactively avoids routing congestion "hotspots", ensuring that the downstream detailed routing tool (`TritonRoute`) has ample physical tracks to complete the layout without DRC clean-up errors.
