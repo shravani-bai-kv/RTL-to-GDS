@@ -112,6 +112,8 @@ magic -T sky130A.tech sky130_inv.mag &
 Screenshot of commands run
 <img width="1222" height="863" alt="cloning git and opening mag and inv" src="https://github.com/user-attachments/assets/59f164d5-571c-4ea5-aaa9-deafc059c732" />
 <img width="1770" height="516" alt="to copy sky130A" src="https://github.com/user-attachments/assets/702dbe4a-4c5c-4748-b295-cb60e9200a03" />
+
+### 2. Load the custom inverter layout in magic and explore.
 Load the custom inverter layout in magic and explore.
 <img width="1450" height="737" alt="inverter" src="https://github.com/user-attachments/assets/c799fa13-a0ec-41af-93e1-1aa7fcd9eed6" />
 
@@ -128,7 +130,6 @@ Deleting or rearrangeing necessary layout part to see DRC error
 <img width="1447" height="737" alt="drc error" src="https://github.com/user-attachments/assets/8d26d6a3-9034-40c3-8df2-a1e985adbbc8" />
 
 ### 3. Parasitic Netlist Extraction
-
 To analyze the electrical performance of your layout, you need to extract its physical properties into a simulation-ready netlist. Run the following sequence of commands within the Magic **Tkcon** window:
 
 ```tcl
