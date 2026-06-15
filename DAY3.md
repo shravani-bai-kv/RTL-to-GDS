@@ -202,12 +202,15 @@ $$\text{Fall Time} = t_{\text{20\%}} - t_{\text{80\%}}$$
 
 * **80% Mark ($V_{IH}$):** $2.64\text{ V}$
 * **20% Mark ($V_{IL}$):** $660\text{ mV}$
+
 20% Screenshots
 <img width="945" height="541" alt="image" src="https://github.com/user-attachments/assets/031a57dd-833d-4f3a-b67d-5764969ed451" />
 <img width="735" height="463" alt="image" src="https://github.com/user-attachments/assets/dc38cdd6-eaf8-4dbe-80ab-fd40916d72f5" />
+
 80% Screenshots
 <img width="931" height="533" alt="image" src="https://github.com/user-attachments/assets/bfdf6446-3ace-4035-bccd-869deaa09e46" />
 <img width="831" height="447" alt="image" src="https://github.com/user-attachments/assets/219115bf-e0ee-4f8e-bfc9-4700e9c47a8b" />
+
 #### Fall Transition Time
 
 $$\text{Fall Time} = t_{\text{20\%}} - t_{\text{80\%}}$$
@@ -220,11 +223,13 @@ $$\text{Rise Cell Delay} = t_{\text{output@50\%}} - t_{\text{input@50\%}}$$
 50% Screenshots
 <img width="948" height="540" alt="image" src="https://github.com/user-attachments/assets/b15cd21d-1a53-44e1-88fe-1a0b25c0e666" />
 <img width="742" height="522" alt="image" src="https://github.com/user-attachments/assets/2b31bdea-3f3f-435b-9a37-b933c56bdfd9" />
+
 #### Rise Cell Delay Result
 
 $$\text{Rise Delay} = t_{\text{out@50\%}} - t_{\text{in@50\%}}$$
 * $2.21144\text{ ns} - 2.15008\text{ ns} = \mathbf{0.06136\text{ ns}\ (61.36\text{ ps})}$
 ---
+
 #### Fall Cell Delay Calculation
 The fall cell delay tracks the time it takes for the output to drop after the input switches high, measured at the $50\%$ switching point.
 * **50% Reference Voltage:** $1.65\text{ V}$
@@ -233,7 +238,8 @@ $$\text{Fall Cell Delay} = t_{\text{out@50\%}} - t_{\text{in@50\%}}$$
 50% Screenshots
 <img width="947" height="537" alt="image" src="https://github.com/user-attachments/assets/734f95ed-5b47-42e1-97e5-78045eb1863f" />
 <img width="603" height="515" alt="image" src="https://github.com/user-attachments/assets/9a5b8ffe-4f27-4190-9e69-b11df51a3e15" />
+
 #### Fall Cell Delay Result
 $$\text{Fall Delay} = t_{\text{out@50\%}} - t_{\text{in@50\%}}$$
 * $4.07\text{ ns} - 4.05\text{ ns} = \mathbf{0.02\text{ ns}\ (20\text{ ps})}$
-* 
+
