@@ -182,7 +182,9 @@ The rise transition time measures the speed of the output signal as it switches 
 $$\text{Rise Transition Time} = t_{\text{output@80\%}} - t_{\text{output@20\%}}$$
 
 ---
+
 *To find these values during your post-layout simulation, place your cursors on the output waveform ($Y$) in `ngspice` at $660\text{ mV}$ and $2.64\text{ V}$ respectively, then subtract the time points.*
+
 20% Screenshots
 <img width="988" height="586" alt="image" src="https://github.com/user-attachments/assets/07188fde-aa7f-42e8-8178-7cf2e15e0675" />
 <img width="1031" height="573" alt="image" src="https://github.com/user-attachments/assets/28505fcb-9a30-4847-b08a-3f49314eec5b" />
