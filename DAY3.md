@@ -150,3 +150,84 @@ Screenshot of tkcon window after running above commands
 Screenshot of created spice file
 <img width="898" height="345" alt="created spice" src="https://github.com/user-attachments/assets/86c4f0a5-e0fc-49f7-aee8-e9a592db1781" />
 
+## 4. Editing the spice model file for analysis through simulation.
+Measuring unit distance in layout grid
+<img width="1013" height="646" alt="size" src="https://github.com/user-attachments/assets/0632e6c7-4a32-470d-bcea-ba1d94b6cb76" />
+Final edited spice file ready for ngspice simulation
+<img width="1033" height="685" alt="edit" src="https://github.com/user-attachments/assets/3b6b742a-171a-4a59-a3c0-21c0dce924ef" />
+
+## 5. Post-layout ngspice simulations.
+Commands for ngspice simulation
+```bash
+# Command to directly load spice file for simulation to ngspice
+ngspice sky130_inv.spice
+
+# Now that we have entered ngspice with the simulation spice file loaded we just have to load the plot
+plot y vs time a
+```
+Screenshot of ngspice run
+<img width="1516" height="943" alt="ngspice wf" src="https://github.com/user-attachments/assets/c0759e9d-012a-41dc-b6b0-2791ffef5376" />
+Screenshot of generated plot
+<img width="1743" height="868" alt="wf" src="https://github.com/user-attachments/assets/afb9c197-f57c-4533-a461-3065288229c1" />
+#### Rise Transition Time Calculation
+
+The rise transition time measures the speed of the output signal as it switches from a low logic state to a high logic state. It is calculated by finding the time difference between the 20% and 80% thresholds of the maximum output voltage ($3.3\text{ V}$).
+
+##### Threshold Voltage Values:
+* **20% of Output ($V_{IL}$):** $0.20 \times 3.3\text{ V} = 660\text{ mV}$
+* **80% of Output ($V_{IH}$):** $0.80 \times 3.3\text{ V} = 2.64\text{ V}$
+
+#### Formula:
+$$\text{Rise Transition Time} = t_{\text{output@80\%}} - t_{\text{output@20\%}}$$
+
+---
+*To find these values during your post-layout simulation, place your cursors on the output waveform ($Y$) in `ngspice` at $660\text{ mV}$ and $2.64\text{ V}$ respectively, then subtract the time points.*
+20% Screenshots
+<img width="988" height="586" alt="image" src="https://github.com/user-attachments/assets/07188fde-aa7f-42e8-8178-7cf2e15e0675" />
+<img width="1031" height="573" alt="image" src="https://github.com/user-attachments/assets/28505fcb-9a30-4847-b08a-3f49314eec5b" />
+80% Screenshots
+<img width="962" height="552" alt="image" src="https://github.com/user-attachments/assets/294b9ded-2a91-48e3-b2a8-56ca741314b0" />
+<img width="865" height="521" alt="image" src="https://github.com/user-attachments/assets/f57ffdde-fff3-4202-9c7a-0f01ce1ad85a" />
+#### Transition Time Metrics
+
+#### Rise Transition Time
+$$\text{Rise Time} = t_{\text{80\%}} - t_{\text{20\%}}$$
+* $2.24638\text{ ns} - 2.18242\text{ ns} = \mathbf{0.06396\text{ ns}\ (63.96\text{ ps})}$
+---
+#### Fall Transition Time
+$$\text{Fall Time} = t_{\text{20\%}} - t_{\text{80\%}}$$
+
+* **80% Mark ($V_{IH}$):** $2.64\text{ V}$
+* **20% Mark ($V_{IL}$):** $660\text{ mV}$
+20% Screenshots
+<img width="945" height="541" alt="image" src="https://github.com/user-attachments/assets/031a57dd-833d-4f3a-b67d-5764969ed451" />
+<img width="735" height="463" alt="image" src="https://github.com/user-attachments/assets/dc38cdd6-eaf8-4dbe-80ab-fd40916d72f5" />
+80% Screenshots
+<img width="931" height="533" alt="image" src="https://github.com/user-attachments/assets/bfdf6446-3ace-4035-bccd-869deaa09e46" />
+<img width="831" height="447" alt="image" src="https://github.com/user-attachments/assets/219115bf-e0ee-4f8e-bfc9-4700e9c47a8b" />
+#### Fall Transition Time
+$$\text{Fall Time} = t_{\text{20\%}} - t_{\text{80\%}}$$
+* $4.0955\text{ ns} - 4.0536\text{ ns} = \mathbf{0.0419\text{ ns}\ (41.9\text{ ps})}$
+---
+#### Propagation Delay (Rise Cell Delay)
+The rise cell delay measures the time gap between the input shifting low and the output pulling high, evaluated at the midpoint threshold.
+* **50% Reference Voltage:** $1.65\text{ V}$
+$$\text{Rise Cell Delay} = t_{\text{output@50\%}} - t_{\text{input@50\%}}$$
+50% Screenshots
+<img width="948" height="540" alt="image" src="https://github.com/user-attachments/assets/b15cd21d-1a53-44e1-88fe-1a0b25c0e666" />
+<img width="742" height="522" alt="image" src="https://github.com/user-attachments/assets/2b31bdea-3f3f-435b-9a37-b933c56bdfd9" />
+#### Rise Cell Delay Result
+$$\text{Rise Delay} = t_{\text{out@50\%}} - t_{\text{in@50\%}}$$
+* $2.21144\text{ ns} - 2.15008\text{ ns} = \mathbf{0.06136\text{ ns}\ (61.36\text{ ps})}$
+---
+#### Fall Cell Delay Calculation
+The fall cell delay tracks the time it takes for the output to drop after the input switches high, measured at the $50\%$ switching point.
+* **50% Reference Voltage:** $1.65\text{ V}$
+$$\text{Fall Cell Delay} = t_{\text{out@50\%}} - t_{\text{in@50\%}}$$
+50% Screenshots
+<img width="947" height="537" alt="image" src="https://github.com/user-attachments/assets/734f95ed-5b47-42e1-97e5-78045eb1863f" />
+<img width="603" height="515" alt="image" src="https://github.com/user-attachments/assets/9a5b8ffe-4f27-4190-9e69-b11df51a3e15" />
+#### Fall Cell Delay Result
+$$\text{Fall Delay} = t_{\text{out@50\%}} - t_{\text{in@50\%}}$$
+* $4.07\text{ ns} - 4.05\text{ ns} = \mathbf{0.02\text{ ns}\ (20\text{ ps})}$
+* 
