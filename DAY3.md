@@ -66,4 +66,4 @@ magic -T sky130A.tech sky130_inv.mag &
 
 The complete step-by-step physical implementation and fabrication flow—detailing the 16-mask CMOS process from substrate selection up to higher-level metallization (Lessons L1 to L7)—has been fully documented in a separate dedicated file.
 
-👉 You can find the comprehensive notes here: [day2_section2.md](./day2_section2.md)
+👉 You can find the comprehensive notes here: [day3_section2.md](./day3_section2.md)
