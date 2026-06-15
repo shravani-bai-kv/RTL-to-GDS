@@ -178,6 +178,7 @@ The rise transition time measures the speed of the output signal as it switches 
 * **80% of Output ($V_{IH}$):** $0.80 \times 3.3\text{ V} = 2.64\text{ V}$
 
 #### Formula:
+
 $$\text{Rise Transition Time} = t_{\text{output@80\%}} - t_{\text{output@20\%}}$$
 
 ---
@@ -191,10 +192,12 @@ $$\text{Rise Transition Time} = t_{\text{output@80\%}} - t_{\text{output@20\%}}$
 #### Transition Time Metrics
 
 #### Rise Transition Time
+
 $$\text{Rise Time} = t_{\text{80\%}} - t_{\text{20\%}}$$
 * $2.24638\text{ ns} - 2.18242\text{ ns} = \mathbf{0.06396\text{ ns}\ (63.96\text{ ps})}$
 ---
 #### Fall Transition Time
+
 $$\text{Fall Time} = t_{\text{20\%}} - t_{\text{80\%}}$$
 
 * **80% Mark ($V_{IH}$):** $2.64\text{ V}$
@@ -206,6 +209,7 @@ $$\text{Fall Time} = t_{\text{20\%}} - t_{\text{80\%}}$$
 <img width="931" height="533" alt="image" src="https://github.com/user-attachments/assets/bfdf6446-3ace-4035-bccd-869deaa09e46" />
 <img width="831" height="447" alt="image" src="https://github.com/user-attachments/assets/219115bf-e0ee-4f8e-bfc9-4700e9c47a8b" />
 #### Fall Transition Time
+
 $$\text{Fall Time} = t_{\text{20\%}} - t_{\text{80\%}}$$
 * $4.0955\text{ ns} - 4.0536\text{ ns} = \mathbf{0.0419\text{ ns}\ (41.9\text{ ps})}$
 ---
@@ -217,12 +221,14 @@ $$\text{Rise Cell Delay} = t_{\text{output@50\%}} - t_{\text{input@50\%}}$$
 <img width="948" height="540" alt="image" src="https://github.com/user-attachments/assets/b15cd21d-1a53-44e1-88fe-1a0b25c0e666" />
 <img width="742" height="522" alt="image" src="https://github.com/user-attachments/assets/2b31bdea-3f3f-435b-9a37-b933c56bdfd9" />
 #### Rise Cell Delay Result
+
 $$\text{Rise Delay} = t_{\text{out@50\%}} - t_{\text{in@50\%}}$$
 * $2.21144\text{ ns} - 2.15008\text{ ns} = \mathbf{0.06136\text{ ns}\ (61.36\text{ ps})}$
 ---
 #### Fall Cell Delay Calculation
 The fall cell delay tracks the time it takes for the output to drop after the input switches high, measured at the $50\%$ switching point.
 * **50% Reference Voltage:** $1.65\text{ V}$
+
 $$\text{Fall Cell Delay} = t_{\text{out@50\%}} - t_{\text{in@50\%}}$$
 50% Screenshots
 <img width="947" height="537" alt="image" src="https://github.com/user-attachments/assets/734f95ed-5b47-42e1-97e5-78045eb1863f" />
