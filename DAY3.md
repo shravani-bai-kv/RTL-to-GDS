@@ -269,7 +269,17 @@ ls -al
 gvim .magicrc
 
 # Command to open magic tool in better graphics
-magic -d XR &
+magic -d XR 
 ```
 Screenshots of commands run
 <img width="1592" height="870" alt="image" src="https://github.com/user-attachments/assets/b729a56b-fe54-4a6a-92ef-3b9e1091db99" />
+
+Screenshot of .magicrc file
+<img width="887" height="875" alt="image" src="https://github.com/user-attachments/assets/ab3ce145-dbb3-4a3b-84b6-3e9781dba3b8" />
+Screenshot of magic -d XR &
+<img width="1437" height="741" alt="image" src="https://github.com/user-attachments/assets/b2bbf4e2-0808-4d4c-92e4-ef441422447d" />
+<img width="1685" height="742" alt="image" src="https://github.com/user-attachments/assets/405997c5-8dbe-483b-9acd-e8e16dd244e5" />
+Pheripheral rules for M3
+<img width="1777" height="902" alt="image" src="https://github.com/user-attachments/assets/2b28299c-4263-4920-b1dd-100e0d10f203" />
+tkcon drc screenshot
+<img width="1782" height="841" alt="image" src="https://github.com/user-attachments/assets/b75eff92-b503-488e-ae98-a9b7de2ebfd7" />
