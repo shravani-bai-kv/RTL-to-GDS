@@ -170,7 +170,6 @@ Screenshot of ngspice run
 Screenshot of generated plot
 <img width="1743" height="868" alt="wf" src="https://github.com/user-attachments/assets/afb9c197-f57c-4533-a461-3065288229c1" />
 #### Rise Transition Time Calculation
-
 The rise transition time measures the speed of the output signal as it switches from a low logic state to a high logic state. It is calculated by finding the time difference between the 20% and 80% thresholds of the maximum output voltage ($3.3\text{ V}$).
 
 ##### Threshold Voltage Values:
