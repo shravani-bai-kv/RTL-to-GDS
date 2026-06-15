@@ -32,8 +32,8 @@ Click on any of the sections below to view the dedicated file containing technic
 ```text
 ├── DAY1.md
 ├── DAY2.md
-│   └── day2_section2.md  <-- Holds the 16 mask cmos process
 ├── DAY3.md
+|  └── day2_section2.md  <-- Holds the 16 mask cmos process
 ├── DAY4.md
 ├── DAY5.md
 └── README.md
