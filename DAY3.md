@@ -118,14 +118,12 @@ Load the custom inverter layout in magic and explore.
 NMOS and PMOS identified
 <img width="1438" height="732" alt="nmos" src="https://github.com/user-attachments/assets/771ad604-1e14-4421-82b3-5a7d86b54294" />
 <img width="1366" height="676" alt="pmos" src="https://github.com/user-attachments/assets/899d8771-7185-42d1-b936-93acae5909d8" />
-
 Output Y connectivity to PMOS and NMOS drain verified
 <img width="1438" height="740" alt="drain of both" src="https://github.com/user-attachments/assets/30cd21b6-333c-412d-8d4e-80bf4e5d0421" />
 PMOS source connectivity to VDD (here VPWR) verified
 <img width="1437" height="740" alt="gate of pmos" src="https://github.com/user-attachments/assets/3004e6ee-d2b5-4341-99b4-dd5d50d2348b" />
 NMOS source connectivity to VSS (here VGND) verified
 <img width="1437" height="737" alt="gate of nmos" src="https://github.com/user-attachments/assets/e0d89132-b470-4226-b983-3fc10a6b40d1" />
-
 Deleting or rearrangeing necessary layout part to see DRC error
 <img width="1447" height="737" alt="drc error" src="https://github.com/user-attachments/assets/8d26d6a3-9034-40c3-8df2-a1e985adbbc8" />
 
@@ -148,3 +146,6 @@ ext2spice
 ```
 Screenshot of tkcon window after running above commands
 <img width="1417" height="811" alt="ext2spice" src="https://github.com/user-attachments/assets/d75ee4af-55be-459c-8337-feaf6aa30061" />
+Screenshot of created spice file
+<img width="898" height="345" alt="created spice" src="https://github.com/user-attachments/assets/86c4f0a5-e0fc-49f7-aee8-e9a592db1781" />
+
