@@ -245,3 +245,31 @@ $$\text{Fall Cell Delay} = t_{\text{out@50\%}} - t_{\text{in@50\%}}$$
 $$\text{Fall Delay} = t_{\text{out@50\%}} - t_{\text{in@50\%}}$$
 * $4.07\text{ ns} - 4.05\text{ ns} = \mathbf{0.02\text{ ns}\ (20\text{ ps})}$
 
+## 6. Find problem in the DRC section of the old magic tech file for the skywater process and fix them.
+
+Link to Sky130 Periphery rules: https://skywater-pdk.readthedocs.io/en/main/rules/periphery.html
+Commands to download and view the corrupted skywater process magic tech file and associated files to perform drc corrections
+```bash
+# Change to home directory
+cd
+
+# Command to download the lab files
+wget http://opencircuitdesign.com/open_pdks/archive/drc_tests.tgz
+
+# Since lab file is compressed command to extract it
+tar xfz drc_tests.tgz
+
+# Change directory into the lab folder
+cd drc_tests
+
+# List all files and directories present in the current directory
+ls -al
+
+# Command to view .magicrc file
+gvim .magicrc
+
+# Command to open magic tool in better graphics
+magic -d XR &
+```
+Screenshots of commands run
+<img width="1592" height="870" alt="image" src="https://github.com/user-attachments/assets/b729a56b-fe54-4a6a-92ef-3b9e1091db99" />
