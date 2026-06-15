@@ -60,3 +60,10 @@ magic -T sky130A.tech sky130_inv.mag &
 <img width="1770" height="516" alt="to copy sky130A" src="https://github.com/user-attachments/assets/66f26ac0-4f0a-4b3a-8619-ff272fc2731a" />
 <img width="1206" height="261" alt="image" src="https://github.com/user-attachments/assets/ed173d3c-04d6-4bee-9856-207dd99b6ae7" />
 <img width="1450" height="737" alt="inverter" src="https://github.com/user-attachments/assets/1546571f-d471-4f7e-b1bb-25df9d4a269c" />
+
+## SECTION 2
+### 📝 Detailed CMOS Fabrication Theory
+
+The complete step-by-step physical implementation and fabrication flow—detailing the 16-mask CMOS process from substrate selection up to higher-level metallization (Lessons L1 to L7)—has been fully documented in a separate dedicated file.
+
+👉 You can find the comprehensive notes here: [day2_section2.md](./day2_section2.md)
