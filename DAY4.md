@@ -22,3 +22,14 @@ Conditions to be verified before moving forward with custom designed cell layout
 Condition 1: The input and output ports of the standard cell should lie on the intersection of the vertical and horizontal tracks.
 Condition 2: Width of the standard cell should be odd multiples of the horizontal track pitch.
 Condition 3: Height of the standard cell should be even multiples of the vertical track pitch.
+
+Commands to open the custom inverter layout
+```bash
+# Change directory to vsdstdcelldesign
+cd Desktop/work/tools/openlane_working_dir/openlane/vsdstdcelldesign
+
+# Command to open custom inverter layout in magic
+magic -T sky130A.tech sky130_inv.mag &
+```
+Screenshot of tracks.info of sky130_fd_sc_hd
+<img width="261" height="270" alt="image" src="https://github.com/user-attachments/assets/27f26540-b553-4ac8-a289-3c9c77421c50" />
