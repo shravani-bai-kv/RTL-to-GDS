@@ -155,3 +155,50 @@ run_synthesis
 <img width="1655" height="607" alt="image" src="https://github.com/user-attachments/assets/a5b6f7c9-530d-4b66-8904-762858ad2eff" />
 <img width="1866" height="945" alt="image" src="https://github.com/user-attachments/assets/a3f4640d-c7d8-4991-83a8-65b6595d7a63" />
 
+### 7. Remove/reduce the newly introduced violations with the introduction of custom inverter cell by modifying design parameters.
+Noting down current design values generated before modifying parameters to improve timing
+
+<img width="1015" height="557" alt="image" src="https://github.com/user-attachments/assets/a4b26911-7edb-4406-89cf-59603de884c1" />
+<img width="1007" height="557" alt="image" src="https://github.com/user-attachments/assets/94741540-49b6-4073-b924-e5184344a06b" />
+
+
+Commands to view and change parameters to improve timing and run synthesis
+```bash
+# Now once again we have to prep design so as to update variables
+prep -design picorv32a -tag 24-03_10-03 -overwrite
+
+# Addiitional commands to include newly added lef to openlane flow merged.lef
+set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+add_lefs -src $lefs
+
+# Command to display current value of variable SYNTH_STRATEGY
+echo $::env(SYNTH_STRATEGY)
+
+# Command to set new value for SYNTH_STRATEGY
+set ::env(SYNTH_STRATEGY) "DELAY 3"
+
+# Command to display current value of variable SYNTH_BUFFERING to check whether it's enabled
+echo $::env(SYNTH_BUFFERING)
+
+# Command to display current value of variable SYNTH_SIZING
+echo $::env(SYNTH_SIZING)
+
+# Command to set new value for SYNTH_SIZING
+set ::env(SYNTH_SIZING) 1
+
+# Command to display current value of variable SYNTH_DRIVING_CELL to check whether it's the proper cell or not
+echo $::env(SYNTH_DRIVING_CELL)
+
+# Now that the design is prepped and ready, we can run synthesis using following command
+run_synthesis
+```
+
+Screenshots of commands run
+<img width="1616" height="945" alt="image" src="https://github.com/user-attachments/assets/46627418-29a0-41be-97af-67ec25debfb9" />
+
+Comparing to previously noted run values area has increased and worst negative slack has become 0
+<img width="937" height="385" alt="image" src="https://github.com/user-attachments/assets/6a554dce-da00-4c97-a730-36eab2f6d52e" />
+<img width="1320" height="837" alt="image" src="https://github.com/user-attachments/assets/76290721-6d5a-4c1e-bbe6-430859d5b0b1" />
+
+### 8. Once synthesis has accepted our custom inverter we can now run floorplan and placement and verify the cell is accepted in PnR flow.
+
