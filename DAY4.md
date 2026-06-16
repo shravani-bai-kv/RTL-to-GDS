@@ -34,6 +34,7 @@ magic -T sky130A.tech sky130_inv.mag &
 Screenshot of tracks.info of sky130_fd_sc_hd
 
 <img width="261" height="270" alt="image" src="https://github.com/user-attachments/assets/27f26540-b553-4ac8-a289-3c9c77421c50" />
+
 Commands for tkcon window to set grid as tracks of locali layer
 ```bash
 # Get syntax for grid command
@@ -42,3 +43,41 @@ help grid
 # Set grid values accordingly
 grid 0.46um 0.34um 0.23um 0.17um
 ```
+Screenshot of commands run
+before setting the grid values
+<img width="1437" height="733" alt="image" src="https://github.com/user-attachments/assets/188421c0-cfa9-4f52-8798-246b40aba1e2" />
+after setting the grid value
+<img width="1513" height="738" alt="image" src="https://github.com/user-attachments/assets/ac70a468-5a0e-47f9-bdd5-a4516d2f924e" />
+Condition 1 verified
+<img width="1463" height="842" alt="image" src="https://github.com/user-attachments/assets/3597aa03-f87a-438d-b491-d7e459fbc640" />
+Condition 2 verified
+<img width="1571" height="737" alt="image" src="https://github.com/user-attachments/assets/77b844f3-c7d4-4138-889d-ad0217f28cb7" />
+
+### 2. Save the finalized layout with custom name and open it.
+Command for tkcon window to save the layout with custom name
+```bash
+# Command to save as
+save sky130_vsdinv.mag
+```
+Command to open the newly saved layout
+```bash
+# Command to open custom inverter layout in magic
+magic -T sky130A.tech sky130_vsdinv.mag &
+```
+
+<img width="981" height="337" alt="image" src="https://github.com/user-attachments/assets/9f286393-6351-43cf-a609-9b00b69bd5e8" />
+<img width="1272" height="262" alt="image" src="https://github.com/user-attachments/assets/daf20c88-6546-4d88-a959-ea68ebe0c436" />
+
+### 3. Generate lef from the layout.
+Command for tkcon window to write lef
+```bash
+# lef command
+lef write
+```
+Screenshot of command run
+<img width="1786" height="736" alt="image" src="https://github.com/user-attachments/assets/f0b1079b-ef84-4bcf-8eca-40bb048d62e0" />
+Screenshot of newly created lef file
+<img width="1366" height="945" alt="image" src="https://github.com/user-attachments/assets/147a1e42-f8b4-4399-a738-489b5d3b0390" />
+
+
+
