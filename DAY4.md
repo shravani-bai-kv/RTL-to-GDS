@@ -15,3 +15,10 @@ Day 4 tasks:-
 11. Replace the old netlist with the new netlist generated after timing ECO fix and implement the floorplan, placement and cts.
 12. Post-CTS OpenROAD timing analysis.
 13. Explore post-CTS OpenROAD timing analysis by removing 'sky130_fd_sc_hd__clkbuf_1' cell from clock buffer list variable 'CTS_CLK_BUFFER_LIST'.
+
+### 1. Fix up small DRC errors and verify the design is ready to be inserted into our flow.
+Conditions to be verified before moving forward with custom designed cell layout:
+
+Condition 1: The input and output ports of the standard cell should lie on the intersection of the vertical and horizontal tracks.
+Condition 2: Width of the standard cell should be odd multiples of the horizontal track pitch.
+Condition 3: Height of the standard cell should be even multiples of the vertical track pitch.
