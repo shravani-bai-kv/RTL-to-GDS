@@ -240,5 +240,7 @@ cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/24-03
 # Command to load the placement def in magic tool
 magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &
 ```
+Screenshot of command run
+<img width="1860" height="320" alt="image" src="https://github.com/user-attachments/assets/2afed4a0-97f4-42d8-baa9-d05e381bb435" />
 
 
