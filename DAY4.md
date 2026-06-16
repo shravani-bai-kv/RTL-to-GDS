@@ -79,5 +79,30 @@ Screenshot of command run
 Screenshot of newly created lef file
 <img width="1366" height="945" alt="image" src="https://github.com/user-attachments/assets/147a1e42-f8b4-4399-a738-489b5d3b0390" />
 
+### 4. Copy the newly generated lef and associated required lib files to 'picorv32a' design 'src' directory.
+Commands to copy necessary files to 'picorv32a' design 'src' directory
+```bash
+# Copy lef file
+cp sky130_vsdinv.lef ~/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/src/
 
+# List and check whether it's copied
+ls ~/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/src/
+
+# Copy lib files
+cp libs/sky130_fd_sc_hd__* ~/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/src/
+
+# List and check whether it's copied
+ls ~/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/src/
+```
+Screenshot of commands run
+<img width="1743" height="152" alt="image" src="https://github.com/user-attachments/assets/72dd1168-7bda-4cd6-804b-b176ab21115a" />
+
+To view Typical lib file 
+<img width="1018" height="895" alt="image" src="https://github.com/user-attachments/assets/26d04825-b9a2-4bb3-addc-553b471e25d4" />
+
+To view Slow lib file
+<img width="852" height="907" alt="image" src="https://github.com/user-attachments/assets/2646fa17-d3d1-4245-b2f0-516692e85dc4" />
+
+To view Fasr lib file
+<img width="1031" height="886" alt="image" src="https://github.com/user-attachments/assets/e4e8ba9c-c043-452f-b775-c8f8d81b6ada" />
 
