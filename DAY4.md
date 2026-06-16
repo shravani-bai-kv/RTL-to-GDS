@@ -243,4 +243,7 @@ magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs
 Screenshot of command run
 <img width="1860" height="320" alt="image" src="https://github.com/user-attachments/assets/2afed4a0-97f4-42d8-baa9-d05e381bb435" />
 
+Screenshot of placement def in magic
+<img width="1460" height="737" alt="image" src="https://github.com/user-attachments/assets/d9f6a682-af25-436d-8ddc-cc44ca9436a0" />
+
 
