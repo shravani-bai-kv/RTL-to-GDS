@@ -291,4 +291,61 @@ poly.9 rules
 <img width="1508" height="812" alt="image" src="https://github.com/user-attachments/assets/7ea785e3-488d-4b49-8161-d04f55d54c8a" />
 Incorrectly implemented poly.9 rule no drc violation even though spacing < 0.48u
 <img width="1667" height="832" alt="image" src="https://github.com/user-attachments/assets/4347b9cc-189c-46be-9452-866c99fd52dd" />
+New commands inserted in sky130A.tech file to update drc
+1.one is this
+<img width="1845" height="898" alt="edit 1" src="https://github.com/user-attachments/assets/792819db-d6ab-493d-8c89-c573addb8bf4" />
+2. second this(ss waas missed refer this acc to line no.)
+<img width="1072" height="607" alt="image" src="https://github.com/user-attachments/assets/cfbd2334-c717-4c0e-ad13-6d3c24602865" />
+Commands to run in tkcon window after editing
+
+```bash
+# Loading updated tech file
+tech load sky130A.tech
+# Must re-run drc check to see updated drc errors
+drc check
+# Selecting region displaying the new errors and getting the error messages 
+drc why
+```
+Screenshot of magic window with rule implemented
+<img width="1737" height="737" alt="drc check final" src="https://github.com/user-attachments/assets/e33495b2-040a-4d0e-8ec1-0310c2f440af" />
+<img width="1077" height="602" alt="image" src="https://github.com/user-attachments/assets/3b39c0e2-e2ea-4e37-a6be-45addbb0746b" />
+### Incorrectly implemented difftap.2 simple rule correction
+Screenshot of difftap rules
+<img width="946" height="553" alt="image" src="https://github.com/user-attachments/assets/56dd8eac-3258-48eb-ae7c-375a7daf6a08" />
+Incorrectly implemented difftap.2 rule no drc violation even though spacing < 0.42u
+<img width="985" height="555" alt="image" src="https://github.com/user-attachments/assets/5b69023e-33f8-412e-8c42-1366fc0a1204" />
+New commands inserted in sky130A.tech file to update drc
+<img width="1025" height="557" alt="image" src="https://github.com/user-attachments/assets/ee1692b3-5d5d-457f-8ae1-9b4c49e0dbd9" />
+Commands to run in tkcon window
+```bash
+# Loading updated tech file
+tech load sky130A.tech
+# Must re-run drc check to see updated drc errors
+drc check
+# Selecting region displaying the new errors and getting the error messages 
+drc why
+```
+Screenshot of magic window with rule implemented
+<img width="1035" height="561" alt="image" src="https://github.com/user-attachments/assets/d8f8811e-f5f6-46db-957e-c0585e66d1aa" />
+### Incorrectly implemented nwell.4 complex rule correction
+Screenshot of nwell rules
+<img width="863" height="500" alt="image" src="https://github.com/user-attachments/assets/3376174c-07d5-4bbf-90da-70af41e1ebf7" />
+Incorrectly implemented nwell.4 rule no drc violation even though no tap present in nwell
+<img width="1037" height="570" alt="image" src="https://github.com/user-attachments/assets/ff76c37d-4106-43bc-a9a6-c1e62ae362a2" />
+New commands inserted in sky130A.tech file to update drc
+<img width="1027" height="552" alt="image" src="https://github.com/user-attachments/assets/516e307e-f3a9-4879-88e6-9d3ec958a771" />
+<img width="1022" height="555" alt="image" src="https://github.com/user-attachments/assets/cd643fa0-3947-4925-970f-28f436fe11ce" />
+Commands to run in tkcon window
+```bash
+# Loading updated tech file
+tech load sky130A.tech
+# Must re-run drc check to see updated drc errors
+drc check
+# Selecting region displaying the new errors and getting the error messages 
+drc why
+```
+Screenshot of magic window with rule implemented
+<img width="1038" height="561" alt="image" src="https://github.com/user-attachments/assets/1990bafc-f3b8-4a31-bab4-4047630d00dd" />
+
+
 
