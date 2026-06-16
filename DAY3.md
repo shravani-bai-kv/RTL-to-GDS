@@ -283,3 +283,12 @@ Pheripheral rules for M3
 <img width="1777" height="902" alt="image" src="https://github.com/user-attachments/assets/2b28299c-4263-4920-b1dd-100e0d10f203" />
 tkcon drc screenshot
 <img width="1782" height="841" alt="image" src="https://github.com/user-attachments/assets/b75eff92-b503-488e-ae98-a9b7de2ebfd7" />
+Incorrectly implemented poly
+<img width="1568" height="832" alt="image" src="https://github.com/user-attachments/assets/05e602d2-2d61-4fbc-8e6a-3baa1be31858" />
+Incorrectly implemented poly.9
+<img width="1442" height="742" alt="image" src="https://github.com/user-attachments/assets/96f54a21-fd9e-4234-b1bf-99dde74cc0be" />
+poly.9 rules
+<img width="1508" height="812" alt="image" src="https://github.com/user-attachments/assets/7ea785e3-488d-4b49-8161-d04f55d54c8a" />
+Incorrectly implemented poly.9 rule no drc violation even though spacing < 0.48u
+<img width="1667" height="832" alt="image" src="https://github.com/user-attachments/assets/4347b9cc-189c-46be-9452-866c99fd52dd" />
+
