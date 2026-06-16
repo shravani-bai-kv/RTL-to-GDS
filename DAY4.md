@@ -104,7 +104,54 @@ To view Slow lib file
 
 <img width="852" height="907" alt="image" src="https://github.com/user-attachments/assets/2646fa17-d3d1-4245-b2f0-516692e85dc4" />
 
-To view Fasr lib file
+To view Fast lib file
 
 <img width="1031" height="886" alt="image" src="https://github.com/user-attachments/assets/e4e8ba9c-c043-452f-b775-c8f8d81b6ada" />
+
+### 5. Edit 'config.tcl' to change lib file and add the new extra lef into the openlane flow
+Commands to be added to config.tcl to include our custom cell in the openlane flow
+
+```bash
+set ::env(LIB_SYNTH) "$::env(OPENLANE_ROOT)/designs/picorv32a/src/sky130_fd_sc_hd__typical.lib"
+set ::env(LIB_FASTEST) "$::env(OPENLANE_ROOT)/designs/picorv32a/src/sky130_fd_sc_hd__fast.lib"
+set ::env(LIB_SLOWEST) "$::env(OPENLANE_ROOT)/designs/picorv32a/src/sky130_fd_sc_hd__slow.lib"
+set ::env(LIB_TYPICAL) "$::env(OPENLANE_ROOT)/designs/picorv32a/src/sky130_fd_sc_hd__typical.lib"
+
+set ::env(EXTRA_LEFS) [glob $::env(OPENLANE_ROOT)/designs/$::env(DESIGN_NAME)/src/*.lef]
+```
+
+
+Edited config.tcl to include the added lef and change library to ones we added in src directory
+<img width="1105" height="920" alt="image" src="https://github.com/user-attachments/assets/9afb973c-86c9-40b3-966e-cac1ba86d5df" />
+
+### 6. Run openlane flow synthesis with newly inserted custom inverter cell.
+Commands to invoke the OpenLANE flow include new lef and perform synthesis
+```bash
+# Change directory to openlane flow directory
+cd Desktop/work/tools/openlane_working_dir/openlane
+
+# alias docker='docker run -it -v $(pwd):/openLANE_flow -v $PDK_ROOT:$PDK_ROOT -e PDK_ROOT=$PDK_ROOT -u $(id -u $USER):$(id -g $USER) efabless/openlane:v0.21'
+# Since we have aliased the long command to 'docker' we can invoke the OpenLANE flow docker sub-system by just running this command
+docker
+```
+```bash
+# Now that we have entered the OpenLANE flow contained docker sub-system we can invoke the OpenLANE flow in the Interactive mode using the following command
+./flow.tcl -interactive
+
+# Now that OpenLANE flow is open we have to input the required packages for proper functionality of the OpenLANE flow
+package require openlane 0.9
+
+# Now the OpenLANE flow is ready to run any design and initially we have to prep the design creating some necessary files and directories for running a specific design which in our case is 'picorv32a'
+prep -design picorv32a
+
+# Adiitional commands to include newly added lef to openlane flow
+set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+add_lefs -src $lefs
+
+# Now that the design is prepped and ready, we can run synthesis using following command
+run_synthesis
+```
+<img width="1687" height="692" alt="image" src="https://github.com/user-attachments/assets/faea326e-9a89-41c0-9da0-9bb2c172875f" />
+<img width="1655" height="607" alt="image" src="https://github.com/user-attachments/assets/a5b6f7c9-530d-4b66-8904-762858ad2eff" />
+<img width="1866" height="945" alt="image" src="https://github.com/user-attachments/assets/a3f4640d-c7d8-4991-83a8-65b6595d7a63" />
 
