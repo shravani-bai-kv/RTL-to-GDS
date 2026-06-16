@@ -246,4 +246,17 @@ Screenshot of command run
 Screenshot of placement def in magic
 <img width="1460" height="737" alt="image" src="https://github.com/user-attachments/assets/d9f6a682-af25-436d-8ddc-cc44ca9436a0" />
 
+Screenshot of custom inverter inserted in placement def with proper abutment
+<img width="861" height="443" alt="image" src="https://github.com/user-attachments/assets/e4bb9352-12c8-45c2-b962-903c90967ed6" />
+
+Command for tkcon window to view internal layers of cells
+```bash
+# Command to view internal connectivity layers
+expand
+```
+<img width="1410" height="677" alt="image" src="https://github.com/user-attachments/assets/71fae6e8-c7dc-45cb-98cb-785f0280460d" />
+
+Abutment of power pins with other cell from library clearly visible
+<img width="830" height="597" alt="image" src="https://github.com/user-attachments/assets/dafa1925-4170-4579-ac2e-0f8a4ab07499" />
+
 
