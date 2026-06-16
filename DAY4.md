@@ -305,3 +305,44 @@ cd Desktop/work/tools/openlane_working_dir/openlane
 sta pre_sta.conf
 ```
 <img width="1290" height="648" alt="image" src="https://github.com/user-attachments/assets/bfd8447d-6900-45cc-a458-6be26b5e81c3" />
+<img width="1283" height="730" alt="image" src="https://github.com/user-attachments/assets/c375dff7-166f-452b-8566-10143a722207" />
+
+Since more fanout is causing more delay we can add parameter to reduce fanout and do synthesis again
+
+Commands to include new lef and perform synthesis
+```bash
+# Now the OpenLANE flow is ready to run any design and initially we have to prep the design creating some necessary files and directories for running a specific design which in our case is 'picorv32a'
+prep -design picorv32a -tag 16-06_15-46 -overwrite
+
+# Adiitional commands to include newly added lef to openlane flow
+set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+add_lefs -src $lefs
+
+# Command to set new value for SYNTH_SIZING
+set ::env(SYNTH_SIZING) 1
+
+# Command to set new value for SYNTH_MAX_FANOUT
+set ::env(SYNTH_MAX_FANOUT) 4
+
+# Command to display current value of variable SYNTH_DRIVING_CELL to check whether it's the proper cell or not
+echo $::env(SYNTH_DRIVING_CELL)
+
+# Now that the design is prepped and ready, we can run synthesis using following command
+run_synthesis
+```
+Screenshot of running command
+<img width="1300" height="710" alt="image" src="https://github.com/user-attachments/assets/2aca8ea3-97e4-486e-89b1-1f6bb5880bd2" />
+Commands run final screenshot
+<img width="1296" height="735" alt="image" src="https://github.com/user-attachments/assets/47e3db29-0951-4a1a-896e-4f6d87c89d19" />
+
+Commands to run STA in another termina
+```bash
+# Change directory to openlane
+cd Desktop/work/tools/openlane_working_dir/openlane
+
+# Command to invoke OpenSTA tool with script
+sta pre_sta.conf
+```
+Screenshots of commands run
+<img width="1292" height="682" alt="image" src="https://github.com/user-attachments/assets/b4315fc4-304f-4bd3-9839-ef09e32f1538" />
+<img width="1296" height="737" alt="image" src="https://github.com/user-attachments/assets/92dcb3b1-b630-46e9-8bc5-618872d234c6" />
