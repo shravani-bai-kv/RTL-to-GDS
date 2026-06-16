@@ -31,6 +31,7 @@ cd Desktop/work/tools/openlane_working_dir/openlane/vsdstdcelldesign
 # Command to open custom inverter layout in magic
 magic -T sky130A.tech sky130_inv.mag &
 ```
+
 Screenshot of tracks.info of sky130_fd_sc_hd
 <img width="261" height="270" alt="image" src="https://github.com/user-attachments/assets/27f26540-b553-4ac8-a289-3c9c77421c50" />
 Commands for tkcon window to set grid as tracks of locali layer
