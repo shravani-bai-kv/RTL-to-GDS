@@ -201,4 +201,44 @@ Comparing to previously noted run values area has increased and worst negative s
 <img width="1320" height="837" alt="image" src="https://github.com/user-attachments/assets/76290721-6d5a-4c1e-bbe6-430859d5b0b1" />
 
 ### 8. Once synthesis has accepted our custom inverter we can now run floorplan and placement and verify the cell is accepted in PnR flow.
+Now that our custom inverter is properly accepted in synthesis we can now run floorplan using following command
+```bash
+run_floorplan
+```
+<img width="1363" height="713" alt="image" src="https://github.com/user-attachments/assets/cb05e908-b220-4d45-af34-47501271758e" />
+<img width="1048" height="502" alt="image" src="https://github.com/user-attachments/assets/300579e9-1198-48dc-8b08-0eebb0adb94a" />
+
+Since we are facing unexpected un-explainable error while using run_floorplan command, we can instead use the following set of commands available based on information from Desktop/work/tools/openlane_working_dir/openlane/scripts/tcl_commands/floorplan.tcl and also based on Floorplan Commands section in Desktop/work/tools/openlane_working_dir/openlane/docs/source/OpenLANE_commands.md
+
+```bash
+# Follwing commands are alltogather sourced in "run_floorplan" command
+init_floorplan
+place_io
+tap_decap_or
+```
+
+Screenshots of command run
+<img width="1618" height="921" alt="image" src="https://github.com/user-attachments/assets/87819750-4a46-491a-b52b-c2cfc4e3854b" />
+<img width="1587" height="512" alt="image" src="https://github.com/user-attachments/assets/a64f3e5e-08c6-4818-80df-133f7510c503" />
+
+Now that floorplan is done we can do placement using following command
+```bash
+# Now we are ready to run placement
+run_placement
+```
+
+Screenshots of command run
+<img width="1451" height="365" alt="image" src="https://github.com/user-attachments/assets/1b559f61-6b0d-4898-a790-f4b49a15f7aa" />
+<img width="1595" height="865" alt="image" src="https://github.com/user-attachments/assets/02e33566-b7c7-48e7-b61c-9e0835587227" />
+
+Commands to load placement def in magic in another terminal
+
+```bash
+# Change directory to path containing generated placement def
+cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/24-03_10-03/results/placement/
+
+# Command to load the placement def in magic tool
+magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &
+```
+
 
