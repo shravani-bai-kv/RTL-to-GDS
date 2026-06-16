@@ -259,4 +259,49 @@ expand
 Abutment of power pins with other cell from library clearly visible
 <img width="830" height="597" alt="image" src="https://github.com/user-attachments/assets/dafa1925-4170-4579-ac2e-0f8a4ab07499" />
 
+### 9. Do Post-Synthesis timing analysis with OpenSTA tool.
+Since we are having 0 wns after improved timing run we are going to do timing analysis on initial run of synthesis which has lots of violations and no parameters were added to improve timing
 
+Commands to invoke the OpenLANE flow include new lef and perform synthesis
+```bash
+# Change directory to openlane flow directory
+cd Desktop/work/tools/openlane_working_dir/openlane
+
+# alias docker='docker run -it -v $(pwd):/openLANE_flow -v $PDK_ROOT:$PDK_ROOT -e PDK_ROOT=$PDK_ROOT -u $(id -u $USER):$(id -g $USER) efabless/openlane:v0.21'
+# Since we have aliased the long command to 'docker' we can invoke the OpenLANE flow docker sub-system by just running this command
+docker
+```
+```bash
+# Now that we have entered the OpenLANE flow contained docker sub-system we can invoke the OpenLANE flow in the Interactive mode using the following command
+./flow.tcl -interactive
+
+# Now that OpenLANE flow is open we have to input the required packages for proper functionality of the OpenLANE flow
+package require openlane 0.9
+
+# Now the OpenLANE flow is ready to run any design and initially we have to prep the design creating some necessary files and directories for running a specific design which in our case is 'picorv32a'
+prep -design picorv32a
+
+# Adiitional commands to include newly added lef to openlane flow
+set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+add_lefs -src $lefs
+
+# Command to set new value for SYNTH_SIZING
+set ::env(SYNTH_SIZING) 1
+
+# Now that the design is prepped and ready, we can run synthesis using following command
+run_synthesis
+```
+Commands run final screenshot
+<img width="952" height="435" alt="image" src="https://github.com/user-attachments/assets/5aae5ebc-a832-4f33-a933-6c04eff13bb9" />
+
+Newly created pre_sta.conf for STA analysis in openlane directory
+<img width="1007" height="532" alt="image" src="https://github.com/user-attachments/assets/ed4b23e8-1109-470e-a689-0604cd96088a" />
+
+```bash
+# Change directory to openlane
+cd Desktop/work/tools/openlane_working_dir/openlane
+
+# Command to invoke OpenSTA tool with script
+sta pre_sta.conf
+```
+<img width="1290" height="648" alt="image" src="https://github.com/user-attachments/assets/bfd8447d-6900-45cc-a458-6be26b5e81c3" />
