@@ -349,3 +349,30 @@ sta pre_sta.conf
 Screenshots of commands run
 <img width="1292" height="682" alt="image" src="https://github.com/user-attachments/assets/b4315fc4-304f-4bd3-9839-ef09e32f1538" />
 <img width="1296" height="737" alt="image" src="https://github.com/user-attachments/assets/92dcb3b1-b630-46e9-8bc5-618872d234c6" />
+
+### 10. Make timing ECO fixes to remove all violations.
+NOR gate of drive strength 2 is driving 5 fanouts
+<img width="1286" height="487" alt="image" src="https://github.com/user-attachments/assets/729bced7-6e1b-4bbc-aaf3-c6f813b642f8" />
+
+Commands to perform analysis and optimize timing by replacing with NOR gate of drive strength 5
+```bash
+# Reports all the connections to a net
+report_net -connections _13285_
+
+# Checking command syntax
+help replace_cell
+
+# Replacing cell
+replace_cell _16145_ sky130_fd_sc_hd__nor3_2
+
+# Generating custom timing report
+report_checks -fields {net cap slew input_pins} -digits 4
+```
+Screenshot of command run
+<img width="658" height="387" alt="image" src="https://github.com/user-attachments/assets/65ec3790-3536-4f86-98f6-1ff800515ebe" />
+
+Before slew
+<img width="1077" height="496" alt="image" src="https://github.com/user-attachments/assets/4aa4c338-0a3d-43de-b28a-2b1dd1ace770" />
+After slew
+(it reduced a little bit if we change other one it may still reduce)
+<img width="1247" height="311" alt="image" src="https://github.com/user-attachments/assets/a512d093-5158-417b-becb-7805eedc219a" />
