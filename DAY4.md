@@ -297,6 +297,9 @@ Commands run final screenshot
 Newly created pre_sta.conf for STA analysis in openlane directory
 <img width="1007" height="532" alt="image" src="https://github.com/user-attachments/assets/ed4b23e8-1109-470e-a689-0604cd96088a" />
 
+Newly created my_base.sdc for STA analysis in openlane/designs/picorv32a/src directory based on the file openlane/scripts/base.sdc
+<img width="1292" height="740" alt="image" src="https://github.com/user-attachments/assets/82da8a2b-6df8-4052-9077-f4c7a4c6dec9" />
+
 ```bash
 # Change directory to openlane
 cd Desktop/work/tools/openlane_working_dir/openlane
