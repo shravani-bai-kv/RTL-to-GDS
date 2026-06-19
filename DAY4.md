@@ -376,3 +376,63 @@ Before slew
 After slew
 (it reduced a little bit if we change other one it may still reduce)
 <img width="1247" height="311" alt="image" src="https://github.com/user-attachments/assets/a512d093-5158-417b-becb-7805eedc219a" />
+
+Commands to perform analysis and optimize timing by replacing
+```bash
+# Reports all the connections to a net
+report_net -connections _11643_
+
+# Replacing cell
+replace_cell _14481_ sky130_fd_sc_hd__or4_4
+
+# Generating custom timing report
+report_checks -fields {net cap slew input_pins} -digits 4
+```
+
+<img width="1236" height="917" alt="image" src="https://github.com/user-attachments/assets/9e38fb7f-c9d9-4f39-8611-a40c9bd54f89" />
+<img width="982" height="826" alt="image" src="https://github.com/user-attachments/assets/c094f8a8-dbe8-43ba-8d86-cb1d201626bd" />
+
+Result - slack reduced
+<img width="1247" height="546" alt="image" src="https://github.com/user-attachments/assets/dde32fc8-7dee-4fec-834a-d69b31b29e42" />
+<img width="1617" height="942" alt="image" src="https://github.com/user-attachments/assets/60af7842-5e05-40f0-8505-e7f51674aaaf" />
+
+Commands to verify instance is replaced or no
+```bash
+# Generating custom timing report
+report_checks -from _29043_ -to _30440_ -through _14506_
+```
+<img width="1127" height="837" alt="image" src="https://github.com/user-attachments/assets/4626312f-3b07-4faf-ae9e-06143062b9d4" />
+We started ECO fixes at wns -5.5905 and now we stand at wns -5.1920 we reduced around 0.3985 ns of violation
+
+### 11. Replace the old netlist with the new netlist generated after timing ECO fix and implement the floorplan, placement and cts
+Now to insert this updated netlist to PnR flow and we can use write_verilog and overwrite the synthesis netlist but before that we are going to make a copy of the old old netlist
+Commands to make copy of netlist
+```bash
+# Change from home directory to synthesis results directory
+cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/25-03_18-52/results/synthesis/
+
+# List contents of the directory
+ls
+
+# Copy and rename the netlist
+cp picorv32a.synthesis.v picorv32a.synthesis_old.v
+
+# List contents of the directory
+ls
+```
+Screenshot of commands run
+<img width="1613" height="517" alt="image" src="https://github.com/user-attachments/assets/c2054ccc-eb83-4d88-967b-4addc79fac53" />
+
+Commands to write verilog
+```bash
+# Check syntax
+help write_verilog
+
+# Overwriting current synthesis netlist
+write_verilog /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/25-03_18-52/results/synthesis/picorv32a.synthesis.v
+
+# Exit from OpenSTA since timing analysis is done
+exit
+```
+Screenshot of commands run
+<img width="1452" height="448" alt="image" src="https://github.com/user-attachments/assets/153f2642-0529-46a4-b4ec-5b79e91710b9" />
