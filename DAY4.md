@@ -436,3 +436,51 @@ exit
 ```
 Screenshot of commands run
 <img width="1452" height="448" alt="image" src="https://github.com/user-attachments/assets/153f2642-0529-46a4-b4ec-5b79e91710b9" />
+Verified that the netlist is overwritten by checking that instance is present or not
+<img width="677" height="861" alt="image" src="https://github.com/user-attachments/assets/a357d23c-5986-4b42-a16d-288a25641fc5" />
+
+Since we confirmed that netlist is replaced and will be loaded in PnR but since we want to follow up on the earlier 0 violation design we are continuing with the clean design to further stages
+Commands load the design and run necessary stages
+```bash
+# Now once again we have to prep design so as to update variables
+prep -design picorv32a -tag 16-06_15-46 -overwrite
+
+# Addiitional commands to include newly added lef to openlane flow merged.lef
+set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+add_lefs -src $lefs
+
+# Command to set new value for SYNTH_STRATEGY
+set ::env(SYNTH_STRATEGY) "DELAY 3"
+
+# Command to set new value for SYNTH_SIZING
+set ::env(SYNTH_SIZING) 1
+
+# Now that the design is prepped and ready, we can run synthesis using following command
+run_synthesis
+
+# Follwing commands are alltogather sourced in "run_floorplan" command
+init_floorplan
+place_io
+tap_decap_or
+
+# Now we are ready to run placement
+run_placement
+
+# Incase getting error
+unset ::env(LIB_CTS)
+
+# With placement done we are now ready to run CTS
+run_cts
+```
+<img width="1122" height="366" alt="image" src="https://github.com/user-attachments/assets/9bf8e3c0-bd0e-4987-81ba-3bc77f0b2711" />
+<img width="975" height="380" alt="image" src="https://github.com/user-attachments/assets/45251530-5a3e-4079-a0a7-0f6b2675b9b3" />
+<img width="1187" height="655" alt="image" src="https://github.com/user-attachments/assets/b4f2d6cf-5cba-4f59-bfa7-6eafb5d97bc2" />
+<img width="1612" height="602" alt="image" src="https://github.com/user-attachments/assets/86c25341-2b35-46ce-aa0d-7466e9a4db84" />
+<img width="1623" height="622" alt="image" src="https://github.com/user-attachments/assets/2c5014bc-0f63-4fb7-bdb9-efc16b76e812" />
+<img width="1543" height="622" alt="image" src="https://github.com/user-attachments/assets/7904b5a6-7600-4a9e-865e-96ea8646a657" />
+<img width="721" height="397" alt="image" src="https://github.com/user-attachments/assets/34ce07e9-deea-4422-a631-2943f1f6b27b" />
+
+
+
+
+
