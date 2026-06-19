@@ -604,7 +604,12 @@ set ::env(CTS_CLK_BUFFER_LIST) [linsert $::env(CTS_CLK_BUFFER_LIST) 0 sky130_fd_
 echo $::env(CTS_CLK_BUFFER_LIST)
 ```
 <img width="1017" height="541" alt="image" src="https://github.com/user-attachments/assets/e3177339-5424-4d70-ba6a-0abe7cb8747f" />
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/52247d1e-c501-4f74-832c-c204e9371a69" />
+<img width="1012" height="542" alt="image" src="https://github.com/user-attachments/assets/826d706e-d24c-4d4d-9682-06cf4db8e14c" />
+<img width="1011" height="542" alt="image" src="https://github.com/user-attachments/assets/130d6af2-c263-4d39-89df-da896f58641b" />
+<img width="1012" height="537" alt="image" src="https://github.com/user-attachments/assets/6dc8eeae-e1db-4cde-8d04-621ac68dd69d" />
+<img width="1001" height="548" alt="image" src="https://github.com/user-attachments/assets/8fdd3c6c-f4cb-4a2b-91ac-94e7225d0016" />
+<img width="1016" height="322" alt="image" src="https://github.com/user-attachments/assets/ef78c1fc-e841-47eb-ad9d-de2141cfbb8e" />
+
 
 
 
